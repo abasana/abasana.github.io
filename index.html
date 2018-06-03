@@ -1,3 +1,19 @@
+var txtFile = new XMLHttpRequest();
+txtFile.onload = function() {
+    allText = txtFile.responseText;
+    allTextLines = allText.split(/\r\n|\n/);
+
+    for(var i = 0; i < allTextLines.length; i++) {
+        document.body.innerHTML += allTextLines[i];
+        document.body.innerHTML += '<br/>';
+    }
+}
+
+txtFile.open("get", "sfpd_dispatch_schema.csv", true);
+txtFile.send();
+
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/abasana/abasana.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
